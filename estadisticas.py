@@ -59,16 +59,19 @@ def crear_grilla_ocupacion(cursos):
     
     return grilla
 
-######### main() #########
-if __name__ == "__main__":
+def cargar_planilla(str_archivo='Horarios_1Q2016.csv'):
     # Cargo datos
     archivo_datos = 'Horarios_1Q2016.csv'
     f = open(archivo_datos, 'rb')
     str_data = f.read().decode('utf8', 'ignore') # Esto no me gusta
     f.close()
     
-    cursos = parser_horarios.procesar_data(str_data)
+    return parser_horarios.procesar_data(str_data)
+
+######### main() #########
+if __name__ == "__main__":
     
+    cursos = cargar_planilla('Horarios_1Q2016.csv')
     grilla = crear_grilla_ocupacion(cursos)
     
     print(grilla)
