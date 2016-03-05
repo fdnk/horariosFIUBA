@@ -6,7 +6,9 @@
 
 import re
 import sys
-	
+
+debug = False
+
 class Curso:
 	"""Una clase contenedora para cada curso de las materias"""
 	dias_semana_parser = {'lunes':1, 'martes': 2, 'miercoles': 3, 'miércoles': 3, 'jueves': 4, 'viernes':5, 'sabado':6, 'sábado':6}
@@ -39,7 +41,8 @@ class Curso:
 
 def guardar_log(t1, t2):
 	"""Dummy, por ahora"""
-	print (t1, t2)
+	if debug:
+		print (t1, t2, file=sys.stderr)
 
 def procesar_data(str_data):
 	"""Recibe un string con los datos del Guaraní y crea una lista
